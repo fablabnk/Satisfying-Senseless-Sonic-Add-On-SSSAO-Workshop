@@ -11,6 +11,11 @@ If you have made an SAO that you are bringing, please add it to this list submit
 | 0x00       | LED Petal Matrix          | AS1115's default. Can override. |                                    |
 | 0x12       | I2C Proto Badge (default) | In firmware, change to whatever |                                    |
 | 0x19       | Blinky Loop SAO           | Can also use 0x18               | [hackaday.io](https://hackaday.io/project/198163-blinky-loop-sao) |
+| 0x19       | Etch sAo Sketch (accel.)  | LIS3DH, can also use 0x18       | [hackaday.io](https://hackaday.io/project/197581-etch-sao-sketch) |
 | 0x1A       | Hack-Man SAO              | See project for commands        | [hackaday.io](https://hackaday.io/project/198301-hack-man-sao) |
+| 0x27       | SAO Core4                 | MCP23017 IO Exp 0x20-27         | [hackaday.io](https://hackaday.io/project/197235-sao-core4-a-nibble-of-core-memory-with-i2c) |
+| 0x3C       | SAO Speak and Spell       | OLED 128x32                     | [hackaday.io](https://hackaday.io/project/198045-sao-speak-and-spell) |
+| 0x3C       | Etch sAo Sketch (OLED)    | OLED 128x128, can also use 0x3D | [hackaday.io](https://hackaday.io/project/197581-etch-sao-sketch) |
+| 0x3C       | SAO OLED                  | OLED 128x64, can also use 0x3D  | [hackaday.io](https://hackaday.io/project/194077-sao-oled) |
+| 0x52       | SAO Nunchuck              | Wii Nunchuck at 0x52            | [hackaday.io](https://hackaday.io/project/198000-sao-nunchuck-adapter) |
 | 0x55       | Badge Tag NFC SAO         | Can be changed in a register    | [hackaday.io](https://hackaday.io/project/198165-badge-tag-nfc-sao) |
-
