@@ -10,3 +10,6 @@
 [submodule "software/libraries/MicroPython-SSD1306"]
 	path = software/libraries/MicroPython-SSD1306
 	url = https://github.com/TimHanewich/MicroPython-SSD1306
+[submodule "software/libraries/micropython-aw210xx"]
+	path = software/libraries/micropython-aw210xx
+	url = https://github.com/eosti/micropython-aw210xx

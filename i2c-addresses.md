@@ -11,6 +11,7 @@ If you have made an SAO that you are bringing, please add it to this list submit
 | 0x00       | LED Petal Matrix          | AS1115's default. Can override. |                                    |
 | 0x12       | I2C Proto Badge (default) | In firmware, change to whatever |                                    |
 | 0x19       | Blinky Loop SAO           | Can also use 0x18               | [hackaday.io](https://hackaday.io/project/198163-blinky-loop-sao) |
+| 0x30       | Metamer SAO               | Contains bootstrap I2C MCU      | [hackaday.io](https://hackaday.io/project/198439-metamer-sao) |
 | 0x1A       | Hack-Man SAO              | See project for commands        | [hackaday.io](https://hackaday.io/project/198301-hack-man-sao) |
 | 0x55       | Badge Tag NFC SAO         | Can be changed in a register    | [hackaday.io](https://hackaday.io/project/198165-badge-tag-nfc-sao) |
 
