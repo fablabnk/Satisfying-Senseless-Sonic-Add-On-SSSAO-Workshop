@@ -10,3 +10,7 @@
 [submodule "software/libraries/MicroPython-SSD1306"]
 	path = software/libraries/MicroPython-SSD1306
 	url = https://github.com/TimHanewich/MicroPython-SSD1306
+[submodule "software/libraries/MicroPython-IR-Transceiver-SAO"]
+	path = software/libraries/MicroPython-IR-Transceiver-SAO
+	url = https://github.com/DmitryPustovit/MicroPython-IR-Transceiver-SAO
+
