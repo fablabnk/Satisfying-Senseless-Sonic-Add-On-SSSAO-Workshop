@@ -16,21 +16,27 @@ buttonB = Pin(9, Pin.IN, Pin.PULL_UP)
 buttonC = Pin(28, Pin.IN, Pin.PULL_UP)
 
 ## GPIOs
+# Position 1
 gpio11 = Pin(7, Pin.OUT)
 gpio12 = Pin(6, Pin.OUT)
 
+# Position 2
 gpio21 = Pin(5, Pin.OUT)
 gpio22 = Pin(4, Pin.OUT)
 
+# Position 3
 gpio31 = Pin(3, Pin.OUT)
 gpio32 = Pin(2, Pin.OUT)
 
+# Position 4
 gpio41 = Pin(22, Pin.OUT)
 gpio42 = Pin(21, Pin.OUT)
 
+# Position 5
 gpio51 = Pin(20, Pin.OUT)
 gpio52 = Pin(19, Pin.OUT)
 
+# Position 6
 gpio61 = Pin(18, Pin.OUT)
 gpio62 = Pin(17, Pin.OUT)
 
