@@ -124,13 +124,13 @@ if not touchwheel_bus:
 
 def touchwheel_read(bus):
     """Returns 0 for no touch, 1-255 clockwise around the circle from the south"""
-    return(touchwheel_bus.readfrom_mem(84, 0, 1)[0])
+    return(touchwheel_bus.readfrom_mem(TOUCHWHEEL_ADDRESS, 0, 1)[0])
 
 def touchwheel_rgb(bus, r, g, b):
     """RGB color on the central display.  Each 0-255"""
-    touchwheel_bus.writeto_mem(84, 15, bytes([r]))
-    touchwheel_bus.writeto_mem(84, 16, bytes([g]))
-    touchwheel_bus.writeto_mem(84, 17, bytes([b]))
+    touchwheel_bus.writeto_mem(TOUCHWHEEL_ADDRESS, 15, bytes([r]))
+    touchwheel_bus.writeto_mem(TOUCHWHEEL_ADDRESS, 16, bytes([g]))
+    touchwheel_bus.writeto_mem(TOUCHWHEEL_ADDRESS, 17, bytes([b]))
 
 
 ## goes green if wheel configured
