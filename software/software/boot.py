@@ -134,11 +134,14 @@ def touchwheel_rgb(bus, r, g, b):
 
 
 ## goes green if wheel configured
+## goes red if wheel is not found
 if touchwheel_bus and petal_bus:
-    petal_bus.writeto_mem(PETAL_ADDRESS, 3, bytes([0x00]))
-if petal_bus:
-    petal_bus.writeto_mem(PETAL_ADDRESS, 2, bytes([0x80]))
+    petal_bus.writeto_mem(PETAL_ADDRESS, 4, bytes([0x80]))
     time.sleep_ms(200)
-    petal_bus.writeto_mem(PETAL_ADDRESS, 2, bytes([0x00]))
+    petal_bus.writeto_mem(PETAL_ADDRESS, 4, bytes([0x00]))
+if petal_bus and not touchwheel_bus:
+    petal_bus.writeto_mem(PETAL_ADDRESS, 3, bytes([0x80]))
+    time.sleep_ms(200)
+    petal_bus.writeto_mem(PETAL_ADDRESS, 3, bytes([0x00]))
 
 
