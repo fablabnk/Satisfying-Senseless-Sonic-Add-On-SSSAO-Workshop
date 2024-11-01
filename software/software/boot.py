@@ -103,7 +103,7 @@ if not petal_bus:
 ## waiting for wheel with a yellow light
 if petal_bus:
     petal_bus.writeto_mem(PETAL_ADDRESS, 3, bytes([0x80]))
-    petal_bus.writeto_mem(PETAL_ADDRESS, 2, bytes([0x80]))
+    petal_bus.writeto_mem(PETAL_ADDRESS, 4, bytes([0x80]))
 
 ## touchwheel last, with a wait loop,  b/c it doesn't init until animation is over
 ## probably need to implement a timeout here?
