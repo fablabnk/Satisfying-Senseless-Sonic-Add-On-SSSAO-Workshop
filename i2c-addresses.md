@@ -13,5 +13,6 @@ If you have made an SAO that you are bringing, please add it to this list submit
 | 0x19       | Blinky Loop SAO           | Can also use 0x18               | [hackaday.io](https://hackaday.io/project/198163-blinky-loop-sao) |
 | 0x1A       | Hack-Man SAO              | See project for commands        | [hackaday.io](https://hackaday.io/project/198301-hack-man-sao) |
 | 0x55       | Badge Tag NFC SAO         | Can be changed in a register    | [hackaday.io](https://hackaday.io/project/198165-badge-tag-nfc-sao) |
+| 0x6C       | duckGLOW SAO              | Change to 0x6C-06F w/ solder jumpers | [hackaday.io](https://hackaday.io/project/198918-duckglow-sao) |
+| 0x13       | Skull of Fate SAO         | Can be changed. See doc.        | [hackaday.io](https://hackaday.io/project/198974-skull-of-fate-sao) |
 | 0x08       | Infrared Communication SAO (TV Remote SAO)         | See project for commands.   | [hackaday.io](https://hackaday.io/project/197812-infrared-communication-sao) |
-
