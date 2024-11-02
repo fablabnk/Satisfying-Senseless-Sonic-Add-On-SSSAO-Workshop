@@ -51,7 +51,7 @@ while True:
 
 
     
-    time.sleep_ms(20)
+    time.sleep_ms(100)
     bootLED.off()
 
 
