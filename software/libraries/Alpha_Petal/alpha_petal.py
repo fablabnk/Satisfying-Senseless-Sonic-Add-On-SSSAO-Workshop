@@ -23,6 +23,18 @@ class alpha_petal:
         self.memx = [1,2,3,4,5,6,7,8]
         self.sleeper = sleeper
         self.rot = 0
+    
+    def touchwheel_read(self, bus):
+        """Returns 0 for no touch, 1-255 clockwise around the circle from the south
+        
+        Args: 
+            bus: this is passed in from the calling function and shold be the i2c bus the touch wheel is on
+
+        Returns:
+            none
+        
+        """
+        return(bus.readfrom_mem(84, 0, 1)[0])
 
     def set_slot(self, slot):
         """
@@ -93,6 +105,23 @@ class alpha_petal:
         """
         for chr in disp_str:
             self.petal_char(chr)
+            
+    def touchwheel_string(self, disp_str, touchwheel_bus):
+        """
+        displays a string one char at a time but each char is rotated based on the touch of the touchwheel.
+    
+        Args:
+            string: [a-z] and space. string of lowercase letters to display
+            touchwheel_bus: pass this in from main
+        Returns:
+            none
+        """
+        for chr in disp_str:
+            tw = self.touchwheel_read(touchwheel_bus) #0 for no touch; 1-255 for touch
+            if tw != 0:
+                self.rot = tw/32
+                self.rot %= 8
+            self.petal_char(chr)
 
     def petal_letter_reset(self):
         """
@@ -138,7 +167,9 @@ class alpha_petal:
         """
         self.memx = [1,2,3,4,5,6,7,8]
         self.rot %= 8
+        self.rot = int(self.rot)
         self.memx[:] = self.memx[-self.rot:] + self.memx[:-self.rot]
+        print(f'rotation after converstion to int... {self.rot}')
         if chr == 'a':
             print("char was a")
             self.bus.writeto_mem(self.addr, self.memx[0], bytes([0x2])) 

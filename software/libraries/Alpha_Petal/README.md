@@ -21,9 +21,17 @@ Initialize the class:
 
 `petal_char(char:char)` This is used internally to display a single char and then wipe it away
 
+`touchwheel_string(disp_str:string, touchwheel_bus:bus)` This displays a string which can be rotated with the touchwheel.
+
 ### Usage
-To just display text:
+#### To just display text:
 
 `set_rotation(0) #not strictly needed, but it's best to clean up`
 
 `disp_string('your string ') #the trailing space is important to delinate between the trailing 'g' and leading 'y'`
+
+#### Display text that rotates:
+
+Automatically: `rotate_string('your string ')`
+
+Based on touchwheel: `touchwheel_string('your string ', touchwheel_bus)`
