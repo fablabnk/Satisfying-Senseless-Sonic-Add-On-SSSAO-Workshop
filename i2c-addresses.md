@@ -25,5 +25,5 @@ If you have made an SAO that you are bringing, please add it to this list submit
 | 0x54       | TouchwheelSAO             | Can change addr in Arduino src  | [hackaday.io](https://hackaday.io/project/199100-touchwheelsao) |
 | 0x6C       | duckGLOW SAO              | Change to 0x6C-06F w/ solder jumpers | [hackaday.io](https://hackaday.io/project/198918-duckglow-sao) |
 | 0x13       | Skull of Fate SAO         | Can be changed. See doc.        | [hackaday.io](https://hackaday.io/project/198974-skull-of-fate-sao) |
-
+| 0x08       | Infrared Communication SAO (TV Remote SAO)         | See project for commands.   | [hackaday.io](https://hackaday.io/project/197812-infrared-communication-sao) |
 
