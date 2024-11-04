@@ -13,3 +13,10 @@
 [submodule "software/libraries/micropython-aw210xx"]
 	path = software/libraries/micropython-aw210xx
 	url = https://github.com/eosti/micropython-aw210xx
+[submodule "i2c_proto_petal_tutorial/pico_ch32v003_prog"]
+	path = i2c_proto_petal_tutorial/pico_ch32v003_prog
+	url = git@github.com:hexagon5un/pico_ch32v003_prog.git
+[submodule "software/libraries/MicroPython-IR-Transceiver-SAO"]
+	path = software/libraries/MicroPython-IR-Transceiver-SAO
+	url = https://github.com/DmitryPustovit/MicroPython-IR-Transceiver-SAO
+
