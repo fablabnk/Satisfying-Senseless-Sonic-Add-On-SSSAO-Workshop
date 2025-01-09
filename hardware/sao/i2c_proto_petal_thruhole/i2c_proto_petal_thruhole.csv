@@ -1,0 +1,6 @@
+"Designator","Footprint","Quantity","Designation","Supplier and ref","Notes"
+"C1","C_0603_1608Metric",1,"100 nF",,
+"U1","TSSOP-20_4.4x6.5mm_P0.65mm",1,"CH32V003F4P6",,
+"D1","LED_0603_1608Metric",1,"LED",,"Any color.  Yellow if we’re doing the badge in black?"
+"R2","R_0603_1608Metric",1,"1k Ohm resistor",,
+"J1","PinHeader_2x03_P2.54mm_Vertical",1,"Simple_Addon_v2 Header.  ",,"Can we get the shrouded ones?"
