@@ -167,13 +167,14 @@
 			)
 		)
 		(property "Value" "100 nF"
-			(at 1.25 2.05 0)
-			(layer "F.Fab")
+			(at 1.25 1.651 0)
+			(layer "F.SilkS")
+			(hide yes)
 			(uuid "1a2efc03-2cf0-44f7-83e4-f8381a8e8eae")
 			(effects
 				(font
-					(size 1 1)
-					(thickness 0.15)
+					(size 0.75 0.75)
+					(thickness 0.1)
 				)
 			)
 		)
@@ -216,10 +217,22 @@
 				)
 			)
 		)
+		(property "Silkscreen Value" "104"
+			(at 1.27 1.651 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "9e87b5c8-9e0d-4fdd-a932-30b79f28a58d")
+			(effects
+				(font
+					(size 0.75 0.75)
+					(thickness 0.1)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/2d719cd1-dddc-46da-9e0d-71d74f5fbf0f")
 		(sheetname "Root")
-		(sheetfile "sao_proto.kicad_sch")
+		(sheetfile "i2c_proto_petal_thruhole.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 0.621 0.92)
@@ -2326,7 +2339,7 @@
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/d0b8bd31-d3e3-44c9-a6d6-bc73bf0b9185")
 		(sheetname "Root")
-		(sheetfile "sao_proto.kicad_sch")
+		(sheetfile "i2c_proto_petal_thruhole.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -1.33 -1.33)
@@ -3515,7 +3528,7 @@
 		(property ki_fp_filters "TSSOP*4.4x6.5mm*P0.65mm*")
 		(path "/3b0befff-c421-4709-951f-a0fa518fcd99")
 		(sheetname "Root")
-		(sheetfile "sao_proto.kicad_sch")
+		(sheetfile "i2c_proto_petal_thruhole.kicad_sch")
 		(attr smd)
 		(fp_line
 			(start 0 -3.385)
@@ -3939,7 +3952,7 @@
 		(property ki_fp_filters "LED* LED_SMD:* LED_THT:*")
 		(path "/34df0537-1f10-4819-9b7e-f2069f6b0f14")
 		(sheetname "Root")
-		(sheetfile "sao_proto.kicad_sch")
+		(sheetfile "i2c_proto_petal_thruhole.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -0.29 -1.236)
@@ -6683,7 +6696,7 @@
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/c0665f17-c598-4252-86f0-629e6c83f073")
 		(sheetname "Root")
-		(sheetfile "sao_proto.kicad_sch")
+		(sheetfile "i2c_proto_petal_thruhole.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -1.33 -1.33)
@@ -7394,7 +7407,7 @@
 		(property ki_fp_filters "Fiducial*")
 		(path "/9b2f3115-0630-4ac9-826c-e301de94f7ef")
 		(sheetname "Root")
-		(sheetfile "sao_proto.kicad_sch")
+		(sheetfile "i2c_proto_petal_thruhole.kicad_sch")
 		(attr smd exclude_from_bom)
 		(fp_circle
 			(center 0 0)
@@ -7456,14 +7469,14 @@
 				)
 			)
 		)
-		(property "Value" "R"
-			(at 2.54 1.92 0)
-			(layer "F.Fab")
+		(property "Value" "100Ω"
+			(at 2.54 1.651 0)
+			(layer "F.SilkS")
 			(uuid "57391717-5cbc-42a3-b7b1-7ba24524a5c4")
 			(effects
 				(font
-					(size 1 1)
-					(thickness 0.15)
+					(size 0.75 0.75)
+					(thickness 0.1)
 				)
 			)
 		)
@@ -7509,7 +7522,7 @@
 		(property ki_fp_filters "R_*")
 		(path "/1595787a-14ee-45a1-9cf2-e0e31d016501")
 		(sheetname "Root")
-		(sheetfile "sao_proto.kicad_sch")
+		(sheetfile "i2c_proto_petal_thruhole.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start 0.62 0.92)
@@ -8661,7 +8674,7 @@
 		(property ki_fp_filters "Fiducial*")
 		(path "/7ad1bbba-b805-429d-bf2a-84bc67a7d0c8")
 		(sheetname "Root")
-		(sheetfile "sao_proto.kicad_sch")
+		(sheetfile "i2c_proto_petal_thruhole.kicad_sch")
 		(attr smd exclude_from_bom)
 		(fp_circle
 			(center 0 0)
@@ -8712,7 +8725,7 @@
 		(descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.54mm single row")
 		(property "Reference" "J3"
-			(at 0 -2.33 270)
+			(at 0 -2.33 -90)
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "ffffc0b2-2d16-4a24-ad55-4e27b7566c85")
@@ -8776,7 +8789,7 @@
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/53f170b8-ead2-4944-80f0-8673451b108f")
 		(sheetname "Root")
-		(sheetfile "sao_proto.kicad_sch")
+		(sheetfile "i2c_proto_petal_thruhole.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -1.33 3.87)
@@ -9354,7 +9367,7 @@
 		)
 		(path "/4e3a0e46-8abf-42c1-a71d-e034830c67fb")
 		(sheetname "Root")
-		(sheetfile "sao_proto.kicad_sch")
+		(sheetfile "i2c_proto_petal_thruhole.kicad_sch")
 		(attr through_hole)
 		(fp_line
 			(start -1.33 1.33)
