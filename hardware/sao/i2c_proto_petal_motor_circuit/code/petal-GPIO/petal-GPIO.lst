@@ -1,0 +1,166 @@
+
+petal-GPIO.elf:     file format elf32-littleriscv
+
+
+Disassembly of section .init:
+
+00000000 <InterruptVector>:
+   0:	0080006f          	j	8 <_einit>
+   4:	0000                	.insn	2, 0x
+	...
+
+Disassembly of section .text:
+
+00000008 <handle_reset>:
+   8:	20000197          	auipc	gp,0x20000
+   c:	7f818193          	addi	gp,gp,2040 # 20000800 <_eusrstack>
+  10:	00018113          	mv	sp,gp
+  14:	08000513          	li	a0,128
+  18:	30051073          	csrw	mstatus,a0
+  1c:	468d                	li	a3,3
+  1e:	00000517          	auipc	a0,0x0
+  22:	fe250513          	addi	a0,a0,-30 # 0 <InterruptVector>
+  26:	8d55                	or	a0,a0,a3
+  28:	30551073          	csrw	mtvec,a0
+  2c:	20000517          	auipc	a0,0x20000
+  30:	fd450513          	addi	a0,a0,-44 # 20000000 <_data_vma>
+  34:	20000597          	auipc	a1,0x20000
+  38:	fcc58593          	addi	a1,a1,-52 # 20000000 <_data_vma>
+  3c:	4601                	li	a2,0
+  3e:	00b55663          	bge	a0,a1,4a <handle_reset+0x42>
+  42:	c110                	sw	a2,0(a0)
+  44:	0511                	addi	a0,a0,4
+  46:	feb54ee3          	blt	a0,a1,42 <handle_reset+0x3a>
+  4a:	15800513          	li	a0,344
+  4e:	20000597          	auipc	a1,0x20000
+  52:	fb258593          	addi	a1,a1,-78 # 20000000 <_data_vma>
+  56:	20000617          	auipc	a2,0x20000
+  5a:	faa60613          	addi	a2,a2,-86 # 20000000 <_data_vma>
+  5e:	00c58863          	beq	a1,a2,6e <handle_reset+0x66>
+  62:	4114                	lw	a3,0(a0)
+  64:	c194                	sw	a3,0(a1)
+  66:	0511                	addi	a0,a0,4
+  68:	0591                	addi	a1,a1,4
+  6a:	fec59ae3          	bne	a1,a2,5e <handle_reset+0x56>
+  6e:	e000f7b7          	lui	a5,0xe000f
+  72:	4705                	li	a4,1
+  74:	c398                	sw	a4,0(a5)
+  76:	0e400793          	li	a5,228
+  7a:	34179073          	csrw	mepc,a5
+  7e:	30200073          	mret
+
+00000082 <SystemInit>:
+  82:	400227b7          	lui	a5,0x40022
+  86:	4705                	li	a4,1
+  88:	c398                	sw	a4,0(a5)
+  8a:	400217b7          	lui	a5,0x40021
+  8e:	01080737          	lui	a4,0x1080
+  92:	0007a223          	sw	zero,4(a5) # 40021004 <_eusrstack+0x20020804>
+  96:	08170713          	addi	a4,a4,129 # 1080081 <petal_GPIO.c.4a7e7d73+0x107e059>
+  9a:	c398                	sw	a4,0(a5)
+  9c:	009f0737          	lui	a4,0x9f0
+  a0:	c798                	sw	a4,8(a5)
+  a2:	40021737          	lui	a4,0x40021
+  a6:	431c                	lw	a5,0(a4)
+  a8:	00679693          	slli	a3,a5,0x6
+  ac:	fe06dde3          	bgez	a3,a6 <SystemInit+0x24>
+  b0:	435c                	lw	a5,4(a4)
+  b2:	400216b7          	lui	a3,0x40021
+  b6:	9bf1                	andi	a5,a5,-4
+  b8:	0027e793          	ori	a5,a5,2
+  bc:	c35c                	sw	a5,4(a4)
+  be:	4721                	li	a4,8
+  c0:	42dc                	lw	a5,4(a3)
+  c2:	8bb1                	andi	a5,a5,12
+  c4:	fee79ee3          	bne	a5,a4,c0 <SystemInit+0x3e>
+  c8:	e00007b7          	lui	a5,0xe0000
+  cc:	0f878793          	addi	a5,a5,248 # e00000f8 <_eusrstack+0xbffff8f8>
+  d0:	0007a023          	sw	zero,0(a5)
+  d4:	e00007b7          	lui	a5,0xe0000
+  d8:	0f478793          	addi	a5,a5,244 # e00000f4 <_eusrstack+0xbffff8f4>
+  dc:	08000713          	li	a4,128
+  e0:	c398                	sw	a4,0(a5)
+  e2:	8082                	ret
+
+000000e4 <main>:
+#include <stdio.h>
+
+#define PIN_1 PD0
+
+int main()
+{
+  e4:	1151                	addi	sp,sp,-12
+  e6:	c406                	sw	ra,8(sp)
+  SystemInit();
+  e8:	3f69                	jal	82 <SystemInit>
+  
+  funGpioInitAll();
+  ea:	40021637          	lui	a2,0x40021
+  ee:	4e1c                	lw	a5,24(a2)
+  funPinMode( PIN_1,     GPIO_Speed_10MHz | GPIO_CNF_OUT_PP );
+  f0:	40011737          	lui	a4,0x40011
+  GPIO_port_enable(GPIO_port_C);
+  GPIO_pinMode(GPIOv_from_PORT_PIN(GPIO_port_C, 0), GPIO_pinMode_I_pullUp, GPIO_Speed_In);
+  
+  while(1)
+  {
+    uint8_t button_is_pressed = !GPIO_digitalRead(GPIOv_from_PORT_PIN(GPIO_port_C, 0));
+  f4:	40011537          	lui	a0,0x40011
+  funGpioInitAll();
+  f8:	0357e793          	ori	a5,a5,53
+  fc:	ce1c                	sw	a5,24(a2)
+  funPinMode( PIN_1,     GPIO_Speed_10MHz | GPIO_CNF_OUT_PP );
+  fe:	400117b7          	lui	a5,0x40011
+ 102:	40078793          	addi	a5,a5,1024 # 40011400 <_eusrstack+0x20010c00>
+ 106:	4394                	lw	a3,0(a5)
+    if (button_is_pressed) {
+      funDigitalWrite( PIN_1,     FUN_LOW );
+    }
+    else {
+      funDigitalWrite( PIN_1,     FUN_HIGH );
+ 108:	4305                	li	t1,1
+      funDigitalWrite( PIN_1,     FUN_LOW );
+ 10a:	62c1                	lui	t0,0x10
+  funPinMode( PIN_1,     GPIO_Speed_10MHz | GPIO_CNF_OUT_PP );
+ 10c:	9ac1                	andi	a3,a3,-16
+ 10e:	0016e693          	ori	a3,a3,1
+ 112:	c394                	sw	a3,0(a5)
+  GPIO_port_enable(GPIO_port_C);
+ 114:	4e14                	lw	a3,24(a2)
+#endif
+
+void DelaySysTick( uint32_t n )
+{
+#ifdef CH32V003
+	uint32_t targend = SysTick->CNT + n;
+ 116:	e000f5b7          	lui	a1,0xe000f
+ 11a:	0106e693          	ori	a3,a3,16
+ 11e:	ce14                	sw	a3,24(a2)
+  GPIO_pinMode(GPIOv_from_PORT_PIN(GPIO_port_C, 0), GPIO_pinMode_I_pullUp, GPIO_Speed_In);
+ 120:	4314                	lw	a3,0(a4)
+ 122:	9ac1                	andi	a3,a3,-16
+ 124:	c314                	sw	a3,0(a4)
+ 126:	4314                	lw	a3,0(a4)
+ 128:	0086e693          	ori	a3,a3,8
+ 12c:	c314                	sw	a3,0(a4)
+ 12e:	4685                	li	a3,1
+ 130:	cb14                	sw	a3,16(a4)
+ 132:	00049737          	lui	a4,0x49
+ 136:	3e070713          	addi	a4,a4,992 # 493e0 <petal_GPIO.c.4a7e7d73+0x473b8>
+    uint8_t button_is_pressed = !GPIO_digitalRead(GPIOv_from_PORT_PIN(GPIO_port_C, 0));
+ 13a:	4514                	lw	a3,8(a0)
+ 13c:	8a85                	andi	a3,a3,1
+    if (button_is_pressed) {
+ 13e:	ea91                	bnez	a3,152 <main+0x6e>
+      funDigitalWrite( PIN_1,     FUN_LOW );
+ 140:	0057a823          	sw	t0,16(a5)
+ 144:	4590                	lw	a2,8(a1)
+ 146:	963a                	add	a2,a2,a4
+	while( ((int32_t)( SysTick->CNT - targend )) < 0 );
+ 148:	4594                	lw	a3,8(a1)
+ 14a:	8e91                	sub	a3,a3,a2
+ 14c:	fe06cee3          	bltz	a3,148 <main+0x64>
+ 150:	b7ed                	j	13a <main+0x56>
+      funDigitalWrite( PIN_1,     FUN_HIGH );
+ 152:	0067a823          	sw	t1,16(a5)
+ 156:	b7fd                	j	144 <main+0x60>

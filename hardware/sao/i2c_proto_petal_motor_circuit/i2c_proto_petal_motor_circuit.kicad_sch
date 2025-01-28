@@ -2414,17 +2414,27 @@
 	)
 	(wire
 		(pts
-			(xy 157.48 93.98) (xy 157.48 99.06)
+			(xy 153.67 101.6) (xy 157.48 101.6)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "18f3e060-9c81-47d5-92f4-29a17e53490e")
+		(uuid "14adb9c0-5c23-480e-90b6-5fbd098d6abc")
 	)
 	(wire
 		(pts
-			(xy 157.48 106.68) (xy 157.48 110.49)
+			(xy 133.35 78.74) (xy 133.35 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "23d1497e-abca-41c8-9c7f-153f2f8d133d")
+	)
+	(wire
+		(pts
+			(xy 157.48 109.22) (xy 157.48 110.49)
 		)
 		(stroke
 			(width 0)
@@ -2444,13 +2454,23 @@
 	)
 	(wire
 		(pts
-			(xy 157.48 91.44) (xy 163.83 91.44)
+			(xy 157.48 78.74) (xy 163.83 78.74)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "3dccade9-c98f-47ec-bd82-18e1db03c816")
+		(uuid "424204fc-ba1b-4b3b-8d36-56617d1494ca")
+	)
+	(wire
+		(pts
+			(xy 137.16 78.74) (xy 133.35 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "762d571f-89dc-4966-b826-8076b474bd72")
 	)
 	(wire
 		(pts
@@ -2481,6 +2501,16 @@
 			(type default)
 		)
 		(uuid "a8569d25-a4d8-4414-826e-2a6292c93bc0")
+	)
+	(wire
+		(pts
+			(xy 153.67 107.95) (xy 153.67 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c5a54bb0-23cc-4a93-9ad8-f335a32286c6")
 	)
 	(wire
 		(pts
@@ -2521,6 +2551,16 @@
 			(type default)
 		)
 		(uuid "cebfcd08-1fab-43af-aa40-1e9ed39d1e2c")
+	)
+	(wire
+		(pts
+			(xy 133.35 107.95) (xy 153.67 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eaa1ecfa-d190-4c92-aa04-b620308e7ec0")
 	)
 	(wire
 		(pts
@@ -2645,16 +2685,16 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 167.64 95.25 0)
+		(at 167.64 82.55 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "3615f9d4-ff65-46c8-a310-d1a2dd43c91b")
-		(property "Reference" "#PWR01"
-			(at 167.64 101.6 0)
+		(uuid "324bfb10-2b59-4021-b1ae-d0b68b56c617")
+		(property "Reference" "#PWR02"
+			(at 167.64 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2663,7 +2703,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 167.64 100.33 0)
+			(at 167.64 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2671,7 +2711,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 167.64 95.25 0)
+			(at 167.64 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2680,7 +2720,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 167.64 95.25 0)
+			(at 167.64 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2689,7 +2729,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 167.64 95.25 0)
+			(at 167.64 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2698,12 +2738,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "260e7d3f-23f8-4535-959b-bca76f15548c")
+			(uuid "98b1c452-19d8-4054-8f9e-bc320f4c0046")
 		)
 		(instances
-			(project ""
+			(project "i2c_proto_petal_motor_circuit"
 				(path "/3de0a0a4-d182-4a02-a503-5dc1a3cc2679"
-					(reference "#PWR01")
+					(reference "#PWR02")
 					(unit 1)
 				)
 			)
@@ -3218,72 +3258,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+3.3V")
-		(at 167.64 87.63 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "81ceda20-5fc0-4e32-99f9-54353df1736f")
-		(property "Reference" "#PWR02"
-			(at 167.64 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 167.64 82.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 167.64 87.63 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 167.64 87.63 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 167.64 87.63 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "f055955e-db3b-44cb-b498-663b955272be")
-		)
-		(instances
-			(project ""
-				(path "/3de0a0a4-d182-4a02-a503-5dc1a3cc2679"
-					(reference "#PWR02")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Diode:1N4001")
 		(at 195.58 99.06 90)
 		(unit 1)
@@ -3373,16 +3347,16 @@
 	)
 	(symbol
 		(lib_id "Device:R_Potentiometer")
-		(at 167.64 91.44 0)
+		(at 167.64 78.74 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "a2d062c6-8114-4175-98af-9d47a5599e33")
+		(uuid "942f2e8a-3a92-4462-86e4-f777024adbc5")
 		(property "Reference" "RV1"
-			(at 170.18 90.1699 0)
+			(at 170.18 77.4699 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3391,7 +3365,7 @@
 			)
 		)
 		(property "Value" "10K"
-			(at 170.18 92.7099 0)
+			(at 170.18 80.0099 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3400,7 +3374,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 167.64 91.44 0)
+			(at 167.64 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3409,7 +3383,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 167.64 91.44 0)
+			(at 167.64 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3418,7 +3392,7 @@
 			)
 		)
 		(property "Description" "Potentiometer"
-			(at 167.64 91.44 0)
+			(at 167.64 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3427,16 +3401,16 @@
 			)
 		)
 		(pin "2"
-			(uuid "b448d8ca-58db-4881-b24a-93c9804b42b7")
+			(uuid "f0fc4b45-99aa-48c3-897a-0441e0978e16")
 		)
 		(pin "1"
-			(uuid "d71d051f-c505-4c6b-a93e-09d58cd7d038")
+			(uuid "0ef3b90e-68c7-4148-8707-c01c4ecc0fb7")
 		)
 		(pin "3"
-			(uuid "b55faa0e-5940-418d-8e83-76858293b110")
+			(uuid "3035d211-30f9-4df5-872d-a14d0077aa19")
 		)
 		(instances
-			(project ""
+			(project "i2c_proto_petal_motor_circuit"
 				(path "/3de0a0a4-d182-4a02-a503-5dc1a3cc2679"
 					(reference "RV1")
 					(unit 1)
@@ -3512,7 +3486,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 157.48 102.87 0)
+		(at 157.48 105.41 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3521,16 +3495,17 @@
 		(fields_autoplaced yes)
 		(uuid "d3d3a4fe-6a77-43fa-80ca-b1c17a02132f")
 		(property "Reference" "R1"
-			(at 160.02 101.5999 0)
+			(at 160.02 104.1399 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
 			)
 		)
 		(property "Value" "1K"
-			(at 160.02 104.1399 0)
+			(at 160.02 106.6799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3539,7 +3514,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 155.702 102.87 90)
+			(at 155.702 105.41 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3548,7 +3523,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 157.48 102.87 0)
+			(at 157.48 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3557,7 +3532,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 157.48 102.87 0)
+			(at 157.48 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3821,6 +3796,72 @@
 			(project ""
 				(path "/3de0a0a4-d182-4a02-a503-5dc1a3cc2679"
 					(reference "U2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3V")
+		(at 167.64 74.93 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "fbd9cfd8-e686-4607-827a-c5bcce7ae85f")
+		(property "Reference" "#PWR01"
+			(at 167.64 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3V"
+			(at 167.64 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 167.64 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 167.64 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+			(at 167.64 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7c3c5b83-b872-4f67-a3f4-ef1c956b552f")
+		)
+		(instances
+			(project "i2c_proto_petal_motor_circuit"
+				(path "/3de0a0a4-d182-4a02-a503-5dc1a3cc2679"
+					(reference "#PWR01")
 					(unit 1)
 				)
 			)
