@@ -14,6 +14,18 @@ To flash firmware onto the device from the badge, you will need a few things:
  
 On the back of your Proto-petal, there is a pair of holes for mounting a header with the words "Jump to program". This is necessary to program the chip. You can either solder a header to this and use a jumper, or you can simply bridge it with solder. If you want to use the CH32V003's programming pin (PD1) for other purposes, you may want to leave it as a jumper.
 
+
+#### 1.2 Connect ProtoPetal to RaspberryPi Pico
+
+For purposes of prototyping we need to connect the ThroughHole-Protopetal, as if it was connected to Port 1 on the supercon badge. That means:
+
+ - `P1 (programming pin)` to `GP7 / 10`
+ - `P2` to `GP6 / 9`
+ - `SDA` to `I2C0 SDA / 1`
+ - `SCL` to `I2C0 SCL / 2`
+ - `GND` to `any GND`
+ - `+V` to `3V3 out`
+
 #### 2. Download the flashing software
 
 The software to flash via the badge can be found in the [pico_ch32v003_prog](https://github.com/hexagon5un/pico_ch32v003_prog/tree/b27aed77272f5a6784cd8eae403d3d86f6571f0e) repository. This repo is linked to the badge repo as a submodule, which is a whole thing on its own. If you don't want to worry about submodule stuff, you can simply download the repo on its own. It will work just fine either way. 
