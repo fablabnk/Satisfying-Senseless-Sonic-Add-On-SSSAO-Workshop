@@ -1,0 +1,55 @@
+/* ***************************************************************************
+MIT License
+
+Copyright (c) 2025 k-off pacovali@student.42berlin.de
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*************************************************************************** */
+
+// WWDG (Window Watchdog Timer) macros and function declarations
+
+#ifndef __CH32V00x_WWDG_H
+#define __CH32V00x_WWDG_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#include <ch32v00x.h>
+
+/* WWDG_Prescaler */
+#define WWDG_Prescaler_1    ((uint32_t)0x00000000)
+#define WWDG_Prescaler_2    ((uint32_t)0x00000080)
+#define WWDG_Prescaler_4    ((uint32_t)0x00000100)
+#define WWDG_Prescaler_8    ((uint32_t)0x00000180)
+
+void       WWDG_DeInit(void);
+void       WWDG_SetPrescaler(uint32_t WWDG_Prescaler);
+void       WWDG_SetWindowValue(uint8_t WindowValue);
+void       WWDG_EnableIT(void);
+void       WWDG_SetCounter(uint8_t Counter);
+void       WWDG_Enable(uint8_t Counter);
+FlagStatus WWDG_GetFlagStatus(void);
+void       WWDG_ClearFlag(void);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __CH32V00x_WWDG_H */
