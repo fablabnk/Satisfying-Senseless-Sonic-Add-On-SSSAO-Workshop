@@ -110,9 +110,7 @@
 						"use_preprocessor": true,
 						"do_not_search_system_directories": false,
 						"preprocess_only": false,
-						"defined_symbols": [
-							"-DSYSCLK_FREQ_48MHZ_HSI 48000000"
-						],
+						"defined_symbols": [],
 						"undefined_symbols": []
 					},
 					"includes": {
@@ -149,7 +147,7 @@
 						"include_files": []
 					},
 					"optimization": {
-						"language_standard": "gnu99",
+						"language_standard": "gnu17",
 						"other_optimization_flags": ""
 					},
 					"warnings": {
@@ -591,11 +589,11 @@
 		]
 	},
 	"flashConfig": {
-		"mcutype": "CH32V00x",
+		"mcutype": "CH32V003",
 		"address": "0x08000000",
 		"target_path": "obj/CH32V003F4P6_MOUNRIVER.hex",
 		"clkSpeed": "High",
-		"debug_interface_mode": "1-wire serial",
+		"debug_interface_mode": "",
 		"erase": true,
 		"program": true,
 		"verify": true,
