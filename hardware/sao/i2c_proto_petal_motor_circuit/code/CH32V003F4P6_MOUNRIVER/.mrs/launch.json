@@ -5,12 +5,12 @@
 			"type": "mrs-debugger",
 			"request": "launch",
 			"name": "CH32V003F4P6_MOUNRIVER",
-			"cwd": "/home/zen-vega/projects/supercon-badge/hardware/sao/i2c_proto_petal_motor_circuit/code/CH32V003F4P6_MOUNRIVER",
+			"cwd": "/Users/user/Desktop/repos/fablabnk/ch32v003_badge/hardware/sao/i2c_proto_petal_motor_circuit/code/CH32V003F4P6_MOUNRIVER",
 			"openOCDCfg": {
 				"useLocalOpenOCD": true,
-				"executable": "/opt/mounriver/MRS2/MRS-linux-x64/resources/app/resources/linux/components/WCH/OpenOCD/OpenOCD/bin/openocd",
+				"executable": "/Applications/MounRiver.app/Contents/Resources/app/resources/darwin/components/WCH/OpenOCD/OpenOCD/bin/openocd",
 				"configOptions": [
-					"-f \"/opt/mounriver/MRS2/MRS-linux-x64/resources/app/resources/linux/components/WCH/OpenOCD/OpenOCD/bin/wch-riscv.cfg\" -c \"chip_id CH32V003\""
+					"-f \"/Applications/MounRiver.app/Contents/Resources/app/resources/darwin/components/WCH/OpenOCD/OpenOCD/bin/wch-riscv.cfg\" -c \"chip_id CH32V003\""
 				],
 				"gdbport": 3333,
 				"telnetport": 4444,
@@ -22,7 +22,7 @@
 				"enableNoZeroWaitingAreaFlash": false
 			},
 			"gdbCfg": {
-				"executable": "/opt/mounriver/MRS2/MRS-linux-x64/resources/app/resources/linux/components/WCH/Toolchain/RISC-V Embedded GCC12/bin/riscv-wch-elf-gdb",
+				"executable": "/Applications/MounRiver.app/Contents/Resources/app/resources/darwin/components/WCH/Toolchain/RISC-V Embedded GCC12/bin/riscv-wch-elf-gdb",
 				"commands": [
 					"set mem inaccessible-by-default off",
 					"set architecture riscv:rv32",
@@ -39,8 +39,8 @@
 					"additionalCommands": []
 				},
 				"loadedFiles": {
-					"executableFile": "/home/zen-vega/projects/supercon-badge/hardware/sao/i2c_proto_petal_motor_circuit/code/CH32V003F4P6_MOUNRIVER/obj/CH32V003F4P6_MOUNRIVER.elf",
-					"symbolFile": "/home/zen-vega/projects/supercon-badge/hardware/sao/i2c_proto_petal_motor_circuit/code/CH32V003F4P6_MOUNRIVER/obj/CH32V003F4P6_MOUNRIVER.elf",
+					"executableFile": "/Users/user/Desktop/repos/fablabnk/ch32v003_badge/hardware/sao/i2c_proto_petal_motor_circuit/code/CH32V003F4P6_MOUNRIVER/obj/CH32V003F4P6_MOUNRIVER.elf",
+					"symbolFile": "/Users/user/Desktop/repos/fablabnk/ch32v003_badge/hardware/sao/i2c_proto_petal_motor_circuit/code/CH32V003F4P6_MOUNRIVER/obj/CH32V003F4P6_MOUNRIVER.elf",
 					"executableFileOffset": 0,
 					"symbolFileOffset": 0
 				},
@@ -54,7 +54,7 @@
 				},
 				"debugInRAM": false
 			},
-			"svdpath": "/opt/mounriver/MRS2/MRS-linux-x64/resources/app/resources/linux/components/WCH/SDK/default/RISC-V/CH32V003/NoneOS/CH32V003xx.svd",
+			"svdpath": "/Applications/MounRiver.app/Contents/Resources/app/resources/darwin/components/WCH/SDK/default/RISC-V/CH32V003/NoneOS/CH32V003xx.svd",
 			"output": {
 				"showDebugGDBTrace": true,
 				"saveDebugOutputToFile": false,
