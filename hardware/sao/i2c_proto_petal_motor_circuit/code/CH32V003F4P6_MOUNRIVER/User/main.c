@@ -28,5 +28,19 @@ SOFTWARE.
 #include "setup.h"
 
 int main(void) {
+    setup_mcu();
+    Delay_Init();
+    setup_systick();
+    setup_gpio(GPIOD, GPIO_Pin_0, GPIO_Mode_Out_PP, GPIO_Speed_30MHz);
+
+    
+    while(1)
+    {
+        GPIO_WriteBit(GPIOD, GPIO_Pin_0, Bit_SET);
+        Delay_Ms(500);
+        GPIO_WriteBit(GPIOD, GPIO_Pin_0, Bit_RESET);
+        Delay_Ms(500);
+    }
     return (0);
+    
 }
