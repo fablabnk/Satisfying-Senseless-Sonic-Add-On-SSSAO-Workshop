@@ -40,6 +40,13 @@ void setup_mcu(void) {
 		RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);
 }
 
+void setup_systick(void) {
+    SysTick->SR &= ~(1u << 0);
+    SysTick->CMP = 0xFFFFFFFF;
+    SysTick->CNT = 0;
+    SysTick->CTLR = 0xF;
+}
+
 void setup_gpio(GPIO_TypeDef *port, uint16_t pin, GPIOMode_TypeDef mode, GPIOSpeed_TypeDef speed) {
     GPIO_InitTypeDef config = { // initialize configuration
         .GPIO_Pin = pin,
@@ -77,6 +84,7 @@ void setup_gpio_interrupt(uint8_t port, uint8_t pin, uint32_t line, EXTITrigger_
 }
 
 void setup_timer(TIM_TypeDef *TIM, uint16_t period, uint16_t prescaler, uint16_t mode) {
+    TIM_Cmd(TIM, DISABLE);
     if (TIM == TIM2) {
         RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
     } else if (TIM == TIM1) {
@@ -89,9 +97,10 @@ void setup_timer(TIM_TypeDef *TIM, uint16_t period, uint16_t prescaler, uint16_t
         .TIM_ClockDivision = TIM_CKD_DIV1,
     };
     TIM_TimeBaseInit(TIM, &TimerConfig);
+    TIM_Cmd(TIM, ENABLE);
 }
 
-void setup_timer_interrupt(TIM_TypeDef *TIM) {
+void setup_timer_interrupt(TIM_TypeDef *TIM, uint16_t trigger) {
     NVIC_InitTypeDef NVIC_InitStruct={
         .NVIC_IRQChannel = 0,
         .NVIC_IRQChannelPreemptionPriority = 1,
@@ -106,6 +115,9 @@ void setup_timer_interrupt(TIM_TypeDef *TIM) {
         NVIC_InitStruct.NVIC_IRQChannel = TIM2_IRQn;
     }
     NVIC_Init(&NVIC_InitStruct);
+    if (trigger <= 0x70) {
+        TIM_SelectOutputTrigger(TIM1, trigger);
+    }
 }
 
 void setup_pwm(TIM_TypeDef *TIM, uint8_t ch, uint16_t pulse_len, uint16_t mode, uint16_t output_state, uint16_t polarity) {
@@ -129,4 +141,51 @@ void setup_pwm(TIM_TypeDef *TIM, uint8_t ch, uint16_t pulse_len, uint16_t mode, 
         TIM_OC2PreloadConfig, TIM_OC3PreloadConfig, TIM_OC4PreloadConfig};
     oc[ch](TIM, TIM_OCPreload_Disable);
     TIM_ARRPreloadConfig(TIM, ENABLE);
+}
+
+void setup_adc(
+    ADC_TypeDef *adc,               // address of the ADC
+    uint32_t adc_mode,              // independent or dual mode
+    FunctionalState is_scan_mode,   // conversion in Scan (multichannels) or Single (one channel)
+    FunctionalState is_cont_mode,   // conversion is performed in Continuous or Single mode
+    uint32_t trigger_source,        // external trigger used to start conversion
+    uint32_t data_alignment,        // ADC data alignment is left or right
+    uint8_t num_channels,           // 1 to 16, number of ADC channels that will be converted using the sequencer for regular channel group
+    uint32_t clock_divisor          // adc clock ratio compared to APB2 clock, ie RCC_PCLK2_Div8
+    )
+{
+    ADC_Cmd(ADC1, DISABLE);
+    ADC_DeInit(adc);
+    ADC_InitTypeDef  ADC_InitStructure = {
+        .ADC_Mode = adc_mode,                   // only ADC_Mode_Independent is actually defined
+        .ADC_ScanConvMode = is_scan_mode,       // allowed values ENABLE or DISABLE
+        .ADC_ContinuousConvMode = is_cont_mode, // allowed values ENABLE or DISABLE
+        .ADC_ExternalTrigConv = trigger_source, // one of ADC_ExternalTrigConv_ values
+        .ADC_DataAlign = data_alignment,        // ADC_DataAlign_Left or ADC_DataAlign_Right
+        .ADC_NbrOfChannel = num_channels        // amount of channels
+    };
+    ADC_Init(adc, &ADC_InitStructure);
+    if (adc == ADC1) {
+        RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1, ENABLE);
+    }
+    ADC_Calibration_Vol(adc, ADC_CALVOL_75PERCENT);
+    RCC_ADCCLKConfig(clock_divisor);
+
+    ADC_Cmd(ADC1, ENABLE);
+    ADC_ResetCalibration(adc);
+    while(ADC_GetResetCalibrationStatus(adc)) ;
+    ADC_StartCalibration(adc);
+    while(ADC_GetCalibrationStatus(adc)) ;
+}
+
+void setup_adc_interrupt(void) {
+    ADC_ITConfig(ADC1, ADC_IT_EOC, ENABLE);
+    ADC_ITConfig(ADC1, ADC_IT_JEOC, ENABLE);
+    NVIC_InitTypeDef NVIC_InitStructure = {
+        .NVIC_IRQChannel = ADC_IRQn,
+        .NVIC_IRQChannelPreemptionPriority = 2,
+        .NVIC_IRQChannelSubPriority = 1,
+        .NVIC_IRQChannelCmd = ENABLE
+    };
+    NVIC_Init(&NVIC_InitStructure);
 }

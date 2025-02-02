@@ -33,6 +33,11 @@ SOFTWARE.
 void setup_mcu(void);
 
 /**
+ * @brief Set up the systick
+ */
+void setup_systick(void);
+
+/**
  * @brief Sets up port and pin
  * 
  * @param port pointer, ie GPIOA
@@ -66,8 +71,9 @@ void setup_timer(TIM_TypeDef *TIM, uint16_t period, uint16_t prescaler, uint16_t
  * @brief Sets up timer interrupt
  * 
  * @param TIM pointer to timer, ie TIM2
+ * @param trigger output trigger, ie TIM_TRGOSource_Update. Pass 0xff to not enable
  */
-void setup_timer_interrupt(TIM_TypeDef *TIM);
+void setup_timer_interrupt(TIM_TypeDef *TIM, uint16_t trigger);
 
 /**
  * @brief Sets up pwm
@@ -80,5 +86,33 @@ void setup_timer_interrupt(TIM_TypeDef *TIM);
  * @param polarity polarity of the signal, ie TIM_OCPolarity_High
  */
 void setup_pwm(TIM_TypeDef *TIM, uint8_t ch, uint16_t pulse_len, uint16_t mode, uint16_t output_state, uint16_t polarity);
+
+/**
+ * @brief Restart and set the up analog-digitqal converter
+ * 
+ * @param adc pointer to address of the ADC
+ * @param adc_mode independent or dual mode
+ * @param is_scan_mode conversion in Scan (multichannels) or Single (one channel)
+ * @param is_conv_mode conversion is performed in Continuous or Single mode
+ * @param trigger_source external trigger used to start conversion
+ * @param data_alignment ADC data alignment is left or right
+ * @param channel_idx 1 to 16, number of ADC channels that will be converted using the sequencer for regular channel group
+ * @param clock_divisor adc clock ratio compared to APB2 clock, ie RCC_PCLK2_Div8
+ */
+void setup_adc(
+    ADC_TypeDef *adc,
+    uint32_t adc_mode,
+    FunctionalState is_scan_mode,
+    FunctionalState is_conv_mode,
+    uint32_t trigger_source,
+    uint32_t data_alignment, 
+    uint8_t channel_idx, 
+    uint32_t clock_divisor
+    );
+
+/**
+ * @brief Set the adc interrupt object
+ */
+void setup_adc_interrupt(void);
 
 #endif // __SETUP_H
