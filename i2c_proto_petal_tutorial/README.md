@@ -71,3 +71,189 @@ A few folks have experienced trouble with the existing image on the badge. If yo
 #### Acknowledgments
 
 Many thanks to [davedarkpo](https://github.com/davedarko/), [Spork](https://github.com/conniest),and [Aaron](https://github.com/aaroneiche/) for figuring out how to get code on there. Many many thanks to [Charles](https://github.com/cnlohr) and [Elliot](https://github.com/hexagon5un) for making the whole thing possible.
+
+## Setting up an environment on Windows   to program the CH32V003 on the SAO from the Pico on the Hackaday Badge  
+
+### Steps Mitch took on 2-Feb-2025 to use a Raspberry Pi Pico to program a CH32V003 on the SAO board -- using Windows.  
+  
+I started by following the tutorial from Raspberry Pi on installing Thonny:  
+But, before installing Thonny, your laptop needs Python 3 (see next paragraph).  
+https://projects.raspberrypi.org/en/projects/getting-started-with-the-pico/2  
+  
+#### Install latest version of Python -- I upgraded from v3.11 to 3.13.1  
+https://www.python.org/downloads/windows/  
+* "Latest Python 3 Release - Python 3.13.1"  
+* "Windows installer (64-bit)"download and double-click to install  
+  
+#### Install Thonny:
+https://thonny.org/  
+* At upper-right:  
+* * Download version 4.1.7 for Windows  
+* * "Installer with 64-bit Python 3.10"  
+* * download and double-click to install  
+  
+#### Get MicroPython running on the Pico:
+https://micropython.org/  
+* DOWNLOAD tab  
+* * search for "Pico Raspberry Pi" (but for Workshop with Hackaday badge:  "Pico W Raspberry Pi")  
+* click on "v1.24.1 (2024-11-29).uf2"  
+* unplug Pico from laptop's USB  
+* hold Pico's BOOTSEL button while plugging it into laptop's USB (to pop up the RPI-RP2 disk volume)  
+* on your laptop copy the "RPI_PICO-20241129-v1.24.1.uf2" file:  
+* *paste it into the RPI-RP2 disk volume  
+&nbsp;&nbsp;&nbsp;&nbsp; MicroPython is now installed on the Pico  
+  
+#### Run Thonny and set it up  
+* View --> Files   --   to view laptop files in upper-right column 
+* Lower-left corner Hamburger menu --> MicroPython (Raspberry Pi Pico)   --   to view files from Pico in lower-right column
+ 	
+#### Make the LED blink on the Pico:  
+* in Thonny:  
+* * Run --> Configure interpreter --> MicroPython (Raspberry Pi Pico)   --   (already chosen when I did this)  
+* * File --> New  
+* * File --> Save --> Raspberry Pi Pico --> FirstTest.py  
+* * type into Thonny upper pane:  
+```
+print("Hello World")  
+```  
+* * click the little green _**run**_ icon near the top of Thonny   --   *and Hello World prints in the lower pane*  
+* * type into Thonny upper pane:  
+```
+import machine  
+led=machine.Pin(25, machine.Pin.OUT)  
+while True:  
+  led.toggle()  
+  time.sleep(1)  
+```  
+* Click the little green _**run**_ icon   --   *and the LED on the Pico blinks!*  
+  
+#### Make the LED blink on the CH32V003 SAO board:  
+  
+##### Grab files we need for making the LED on the CH32V003 SAO board blink:  
+https://github.com/hexagon5un/pico_ch32v003_prog  
+* copy to laptop:  
+* * constants.py  
+* * flash_ch32v003.py  
+* * singlewire_pio.py  
+* * blink.bin  
+* copy the above files from laptop to Pico via Thonny  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; by right-clicking on each file --> Upload to /  
+  
+##### Hardware connection between CH32V003 SAO board and Pico:  
+* short out "Jump to program" pads on CH32V003 SAO board (and leave them shorted)
+  
+| CH32V003   |     Pico       | color on prototype CH32V003   |  
+| :--------: | :------------: | :---------------------------: |  
+|    GP1     |   GP7 / 10     |           Yellow              |  
+|    GP2     |   GP6 / 9      |           Green               |  
+|  		SDA     | I2C0 SDA / 1   |           Orange              |  
+|  		SCL     | I2C0 SCL / 2   |           Blue                |  
+|  		GND     |   any GND      |           Black               |  
+|  		+V      |   3V3 out      |           Red                 |  
+		
+##### Copy/Paste the following lines into the lower pane of Thonny (Python interpreter):  
+```
+from flash_ch32v003 import CH32_Flash  
+flasher = CH32_Flash(1)  
+flasher.flash_binary("blink.bin")
+```  
+*And the LED on the CH32V003 SAO board blinks !*  
+  
+  
+#### Let's try flashing some other code into the CH32V003 SAO board  
+  
+* Clone the ch32v003fun Github repository from:  
+https://github.com/cnlohr/ch32v003fun		
+  
+*  From the CH3fun wiki:  
+https://github.com/cnlohr/ch32v003fun/wiki/Installation  
+  
+under the Windows section:  
+* Click on the "this copy" link to get GCC10 installed  
+* https://gnutoolchains.com/risc-v/  
+* * Click "risc-v-gcc10.1.0.exe" in the top line of the table  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(NOTE:  do not click the green DOWNLOAD button at the bottom)  
+* * Double-click to install  
+  
+* Open a cmd prompt window  
+* * cd to the example\blink directory  
+Type in:  
+```
+make
+```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This will compile the blink program with the result of blink.bin in the directory  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOTE:  the flashing will fail, which is expected and OK  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOTE: THE ABOVE IS ONLY TO TEST OUR COMMAND LINE DEVELOPMENT ENVIRONMENT  
+* * Copy the *blink* directory to create a new *blink-petal* directory  
+* * Copy *blink.c* to *blink-petal.c*  
+* * Edit the make file to change the TARGET to *blink-petal*  
+* * Edit the *blink-petal.c* file to contain only the following text:  
+```
+#include "ch32v003fun.h"
+#include <stdio.h>
+
+// use defines to make more meaningful names for our GPIO pins
+#define PIN_1 PD0
+
+int main()
+{
+  SystemInit();
+
+  // Enable GPIOs
+  funGpioInitAll();
+
+  funPinMode( PIN_1, GPIO_Speed_10MHz | GPIO_CNF_OUT_PP );
+
+  while(1)
+  {
+    funDigitalWrite( PIN_1, FUN_HIGH );
+    Delay_Ms( 250 );
+    funDigitalWrite( PIN_1, FUN_LOW );
+    Delay_Ms( 250 );
+  }
+}	 
+```
+  
+** Now do a  
+```
+   make
+```  
+&nbsp;&nbsp;&nbsp;to create a blink-petal.bin file  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOTE:  the flashing will fail, which is expected and OK
+  
+* * delete the *blink.bin* file from the Pico, from the lower pane of Thonny (right-click --> delete)
+* * add the new *blink-petal.bin* file from your laptop to the Pico using Thonny (right-click --> Upload to /)
+* * Copy/Paste the following lines into the lower pane of Thonny (Python interpreter):
+```
+   from flash_ch32v003 import CH32_Flash
+   flasher = CH32_Flash(1)
+   flasher.flash_binary("blink-petal.bin")
+```  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*And the LED on the CH32V003 SAO board blinks quickly!*  
+  
+_**Now you know that you can program the CH32V003 on the SAO board to do whatever you want.**_  
+  
+  
+  
+### The following is not used for our Hackaday workshop, but is cool for programming the Pico with C code using Visual Studio:  
+  
+#### Install Pico SDK for Windows  
+https://www.raspberrypi.com/news/raspberry-pi-pico-windows-installer/  
+* * click the red "Download Windows Pico Installer" button
+* * download and double-click to install (takes a long, long, long time to download and install Visual Studio and other files in the process)  
+  
+* WindowsKey --> type "Pico"  
+* * run "Pico - Visual Studio Code"  
+* * * on left, under "PICO-EXAMPLES", click on "C blink.c"  
+* * * click on "Build" icon at the bottom of the left pane  
+* * * * choose "Pico ARM GCC"  
+* * * * click Pico's BOOTSEL button --> it takes a while to compile everything  
+* * * click the "Run and Debug (Ctrl+Shift+D)" icon in the left column  
+* * * tap "F5" key  
+* * unplug Pico from laptop's USB  
+* * hold Pico's BOOTSEL button while plugging it into laptop's USB (to pop up the RPI-RP2 disk volume)  
+* * copy the "blink.uf2" file from where it compiled on your laptop  
+NOTE:  for me it was at:  "C:\Users\maltm\Documents\Pico-v1.5.1\pico-examples\build\blink"  
+* * paste it into the RPI-RP2 disk volume  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *The LED on the Pico starts blinking !*  
+  
