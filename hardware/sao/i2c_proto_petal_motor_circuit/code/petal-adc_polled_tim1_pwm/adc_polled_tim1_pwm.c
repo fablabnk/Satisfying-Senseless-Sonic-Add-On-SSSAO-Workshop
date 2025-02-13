@@ -179,7 +179,7 @@ int main()
 
 	while(1)
 	{
-	        t1pwm_setpw(0, adc_get());
+	        t1pwm_setpw(0, adc_get()/4);
 		Delay_Ms(10);
 	}
 }
