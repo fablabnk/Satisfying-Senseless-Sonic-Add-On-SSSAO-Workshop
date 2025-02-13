@@ -1,8 +1,4 @@
-# 2024 Supercon 8 -- Supercon Add-On Badge
-
-![Badge Glamour Shot](resources/badge_photos/supercon8_sao_badge_featured.png)
-
-# Notes and Questions
+# Satisfying-Senseless-Sonic Add-On (SSSAO) Workshop Notes and Questions
 
 ## Q: What is Thonny? A: A Python IDE for beginners
 
