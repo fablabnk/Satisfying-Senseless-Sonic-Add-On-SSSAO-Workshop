@@ -1,12 +1,12 @@
-Steps needed to get to 
+Steps needed to get to WORKSHOP
 
 - DONE: revise the schematic
 	- green wires = hardwired, blue wires = need to wire on protoboard
 	- made sure LEDs are wired ACTIVE LOW (to match how the sequencer works)
 - DONE: adapt the code to match the schematic
-- finalise the mechanics of (at least) one SAO
-- plan a layout for the protoboard that allows for all three (vibro, solenoid, buzzer)
-- test one channel of the breadboarded sequencer with our finalised SAO
+- URS: finalise the mechanics of (at least) one SAO
+- MITCH: plan a layout for the protoboard that allows for all three options (vibro, solenoid, buzzer)
+- GRAHAM: test one channel of the breadboarded sequencer with our finalised SAO
 - solder-up one SAO, following the layout we planned
 - solder-up the other two types of SAO, following the layout we planned
 - plan workshop syllabus
