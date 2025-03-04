@@ -4,14 +4,17 @@ Steps needed to get to WORKSHOP
 	- green wires = hardwired, blue wires = need to wire on protoboard
 	- made sure LEDs are wired ACTIVE LOW (to match how the sequencer works)
 - DONE: adapt the code to match the schematic
-- URS: finalise the mechanics of (at least) one SAO
+- DONE: finalise the mechanics of (at least) one SAO
+- URS: clean up and finalise code in repo
+- URS: iterate on mechanics and how the devices sound (one using vibro motor)
 - MITCH: plan a layout for the protoboard that allows for all three options (vibro, solenoid, buzzer)
+    - electronics and all wiring on bottom side, 3D printed sounding-device and 2 x LEDs on top side 
 - GRAHAM: test one channel of the breadboarded sequencer with our finalised SAO
-- solder-up one SAO, following the layout we planned
-- solder-up the other two types of SAO, following the layout we planned
-- plan workshop syllabus
+- GRAHAM: solder-up one SAO, following the layout we planned and document
+- GRAHAM: solder-up two more types of SAO - have someone do it from documentation - and test all three with sequencer 
+- GRAHAM: plan workshop syllabus
 - test the sequencer/badge combo running off 2xAA batteries
-- buy closed jumper blocks from BerryBase
+- DONE: buy closed jumper blocks from BerryBase
 - get hold of a badge in advance of the workshop (Mitch to e-mail)
 - test again in full with the actual badge
 
@@ -40,7 +43,6 @@ Duration: 2 hours
 - fablabnk promo materials
 
 # Parts List
-
 2N2222 Transistors x 50
 CH32V003 Debugger x 2 (get one from Pavel)
 Right-angled Pots x 30
@@ -51,6 +53,7 @@ Coin Button-Type Micro DC Vibrating Motor x 20
 Jumpers x 40 (to collect)
 Hook-up wire - red, black, orange
 Jingle Bells, 2 sizes
+Pin headers in case board doesn't have them
 
 3D printed kit parts - how many of each?
 
