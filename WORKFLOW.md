@@ -5,6 +5,7 @@ Steps needed to get to WORKSHOP
 	- made sure LEDs are wired ACTIVE LOW (to match how the sequencer works)
 - DONE: adapt the code to match the schematic
 - DONE: finalise the mechanics of (at least) one SAO
+- DONE: buy closed jumper blocks from BerryBase
 - URS: clean up and finalise code in repo
 - URS: iterate on mechanics and how the devices sound (one using vibro motor)
 - MITCH: plan a layout for the protoboard that allows for all three options (vibro, solenoid, buzzer)
@@ -14,21 +15,35 @@ Steps needed to get to WORKSHOP
 - GRAHAM: solder-up two more types of SAO - have someone do it from documentation - and test all three with sequencer 
 - GRAHAM: plan workshop syllabus
 - test the sequencer/badge combo running off 2xAA batteries
-- DONE: buy closed jumper blocks from BerryBase
-- get hold of a badge in advance of the workshop (Mitch to e-mail)
-- test again in full with the actual badge
-
-- assemble equipment:
 
 # Workshop Syllabus
 
 Duration: 2 hours
 
-- Pick your
-- Solder
-- CH32V003 SWIO Flashing (2 laptop, 2 debuggers)
-- Standalone test?
-- Badge 
+- Introduction to the project                                               [15 minutes]
+    - Show where flashing guide and CH32V003/sequencer code lives
+- Get started w/ soldering introduction and support                         [1 hour]
+    - First task: Solder the jumper, resister and LED
+    - CH32V003 SWIO Flashing - one-by-one as they go
+    - Follow slide presentation accumulating components on the layout
+- Choose your variant (motor type and sound maker) and assemble             [20 minutes]
+    - 1. Cymbal hitter - w/ vibro spinning motor
+    - 2. Rattle - w/ cell buzzer motor OR vibro spinning motor
+    - 3. Spinning ball tom - w/ vibro spinning motor
+- Standalone test with own badge                                            [10 minutes]
+- Join the badge orchestra                                                  [15 minutes]
+- Flashing using RPi Pico                                                   [optional extra]
+- Intro to the CH32V003 or sequencer code                                   [optional extra]
+
+To do in advance
+- mass print of 3D printed parts
+- precut lengths of solid core (red, yellow, orange, black - Urs)
+- 1 bag per participant (generic parts only)
+- motors on the side: pre-wired
+
+# Monday
+# Wednesday - get hold of the badge and test from 20:30
+# Friday
 
 # Considerations
 
@@ -54,10 +69,4 @@ Jumpers x 40 (to collect)
 Hook-up wire - red, black, orange
 Jingle Bells, 2 sizes
 Pin headers in case board doesn't have them
-
-3D printed kit parts - how many of each?
-
-# Participants will bring themselves
-
-- badge
-- proto petal SAO
+3D printed kit parts - 10 of each (at least)
