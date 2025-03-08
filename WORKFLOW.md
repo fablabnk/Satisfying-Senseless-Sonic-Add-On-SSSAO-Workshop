@@ -6,21 +6,24 @@ Steps needed to get to WORKSHOP
 - DONE: adapt the code to match the schematic
 - DONE: finalise the mechanics of (at least) one SAO
 - DONE: buy closed jumper blocks from BerryBase
-- URS: clean up and finalise code in repo
+- DONE: clean up and finalise code in repo
 - URS: iterate on mechanics and how the devices sound (one using vibro motor)
-- MITCH: plan a layout for the protoboard that allows for all three options (vibro, solenoid, buzzer)
-    - electronics and all wiring on bottom side, 3D printed sounding-device and 2 x LEDs on top side 
-- GRAHAM: test one channel of the breadboarded sequencer with our finalised SAO
-- GRAHAM: solder-up one SAO, following the layout we planned and document
-- GRAHAM: solder-up two more types of SAO - have someone do it from documentation - and test all three with sequencer 
+- DONE: plan a layout for the protoboard - electronics and all wiring on bottom side, 3D printed sounding-device and 2 x LEDs on top side 
+- DONE: solder-up one SAO, following the layout we planned
+- DONE: solder-up two more types of SAO - have someone do it from documentation - and test all three with sequencer
+- MITCH: make step-by-step images of how to assemble in KiCad
+- GRAHAM: test three SAO's with the breadboarded sequencer
 - GRAHAM: plan workshop syllabus
-- test the sequencer/badge combo running off 2xAA batteries
+- GRAHAM: test the sequencer/badge combo running off 2xAA batteries
+- GRAHAM: sequencer button documentation
 
 # Workshop Syllabus
 
 Duration: 2 hours
 
-- Introduction to the project                                               [15 minutes]
+- Introduction                                                              [15 minutes]
+    - About us/Mitch/42/FabLab and project history (RVPC)
+    - Demo of one sound badge
     - Show where flashing guide and CH32V003/sequencer code lives
 - Get started w/ soldering introduction and support                         [1 hour]
     - First task: Solder the jumper, resister and LED
