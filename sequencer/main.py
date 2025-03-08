@@ -1,3 +1,5 @@
+# REMEMBER THAT: LEDs are ACTIVE LOW, so led_metro_pins[current_channel].off() means ON and vice versa
+
 import uasyncio as asyncio
 from machine import Pin
 import time
@@ -25,14 +27,19 @@ steps = [[0] * total_steps for _ in range(channels)]  # 6 channels, each with to
 current_step = 0
 current_channel = 0
 
+# Initialise all LEDs as off
+for channel in range(channels):
+    led_metro_pins[channel].on()
+    led_note_pins[channel].on()
+
 async def metronome():
     global current_step, bpm, interval
     while True:
         interval = 60 / bpm / steps_per_beat  # Interval for each step (dynamic BPM, 4 steps per beat)
         if current_step % steps_per_beat == 0:  # Light UP the LED every 4 steps (1 beat)
-            led_metro_pins[current_channel].on()
-            await asyncio.sleep(interval)
             led_metro_pins[current_channel].off()
+            await asyncio.sleep(interval)
+            led_metro_pins[current_channel].on()
         else:
             await asyncio.sleep(interval)  # Wait for the full interval if not a beat
         current_step = (current_step + 1) % total_steps
@@ -41,18 +48,18 @@ async def note_display():
     while True:
         for channel in range(channels):
             if steps[channel][current_step] == 1:
-                led_note_pins[channel].on()
-            else:
                 led_note_pins[channel].off()
+            else:
+                led_note_pins[channel].on()
         await asyncio.sleep(0.01)  # Check the note status frequently
 
 async def record_note():
     while True:
         if button_3.value() == 0 and button_shift.value() == 1:
             steps[current_channel][current_step] = 1
-            led_note_pins[current_channel].on()
-        else:
             led_note_pins[current_channel].off()
+        else:
+            led_note_pins[current_channel].on()
         await asyncio.sleep(0.01)  # Check the button status frequently
 
 async def clear_notes():
@@ -122,11 +129,11 @@ async def select_channel():
                 await half_tempo()
         elif button_2.value() == 1 and button_was_pressed:
             if not button_held:
-                led_metro_pins[current_channel].off()  # Turn off the current channel's metronome LED
+                led_metro_pins[current_channel].on()  # Turn off the current channel's metronome LED
                 current_channel = (current_channel + 1) % channels
-                led_metro_pins[current_channel].on()  # Light the new channel's metronome LED
+                led_metro_pins[current_channel].off()  # Light the new channel's metronome LED
                 await asyncio.sleep(interval)  # Keep it on for the specified duration
-                led_metro_pins[current_channel].off()
+                led_metro_pins[current_channel].on()
             button_was_pressed = False
             button_held = False
         await asyncio.sleep(0.01)  # Check the button status frequently
