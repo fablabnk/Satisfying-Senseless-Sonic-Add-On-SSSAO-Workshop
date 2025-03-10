@@ -24,7 +24,7 @@ hold_time = 2  # Hold time for double/half tempo (in seconds)
 
 # Sequencer state
 channels = 6
-steps = [[0] * total_steps for _ in range(channels)]  # 6 channels, each with total_steps steps
+steps = [[1 if i % steps_per_beat == 0 else 0 for i in range(total_steps)] for _ in range(channels)]  # Initialize steps array
 current_step = 0
 current_channel = 0
 
@@ -168,4 +168,3 @@ async def main():
 
 # Run the event loop
 asyncio.run(main())
-
