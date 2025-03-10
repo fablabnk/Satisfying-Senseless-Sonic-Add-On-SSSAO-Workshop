@@ -1,4 +1,5 @@
 # REMEMBER THAT: LEDs are ACTIVE LOW, so led_metro_pins[current_channel].off() means ON and vice versa
+# LEDs will light when first connected and only stop lighting when channel select chooses them
 
 import uasyncio as asyncio
 from machine import Pin
@@ -14,7 +15,7 @@ led_note_pins = [Pin(6, Pin.OUT), Pin(4, Pin.OUT), Pin(2, Pin.OUT), Pin(21, Pin.
 led_metro_pins = [Pin(7, Pin.OUT), Pin(5, Pin.OUT), Pin(3, Pin.OUT), Pin(22, Pin.OUT), Pin(20, Pin.OUT), Pin(18, Pin.OUT)]
 
 bpm = 120
-steps_per_bar = 256  # Number of steps per bar
+steps_per_bar = 8  # Number of steps per bar
 steps_per_beat = steps_per_bar / 4  # Number of steps per beat
 num_bars = 2  # Number of bars for the sequence
 total_steps = steps_per_bar * num_bars  # Total number of steps in the sequence
@@ -27,7 +28,6 @@ steps = [[0] * total_steps for _ in range(channels)]  # 6 channels, each with to
 current_step = 0
 current_channel = 0
 
-# Initialise all LEDs as off
 for channel in range(channels):
     led_metro_pins[channel].on()
     led_note_pins[channel].on()
@@ -57,9 +57,6 @@ async def record_note():
     while True:
         if button_3.value() == 0 and button_shift.value() == 1:
             steps[current_channel][current_step] = 1
-            led_note_pins[current_channel].off()
-        else:
-            led_note_pins[current_channel].on()
         await asyncio.sleep(0.01)  # Check the button status frequently
 
 async def clear_notes():
@@ -171,3 +168,4 @@ async def main():
 
 # Run the event loop
 asyncio.run(main())
+
