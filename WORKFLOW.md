@@ -55,10 +55,11 @@ To do in advance
 
 # Equipment List
 
-- soldering iron kits - how many
+- MITCH: soldering iron kits
 - laser cut signage
 - 42 poster roll-up
 - fablabnk promo materials
+- hot glue gun
 
 # Parts List
 2N2222 Transistors x 50
