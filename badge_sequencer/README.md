@@ -10,7 +10,7 @@ By default the sequencer run in a looping two bar pattern, with sixteen steps pe
 
 2. Now download [Thonny](https://thonny.org/) and open it. We will use it to copy our sequencer main.py over to the Pi Pico W on your badge
 
-3. In the top left file-browser panel of Thonny, navigate to the [/sequencer](./tree/main/badge_sequencer) folder.
+3. In the top left file-browser panel of Thonny, navigate to the [sequencer](./badge_sequencer) folder in the repo.
 
 4. Connect your conference badge to your PC using a data-enabled USB cable. You should see the files that are currently on the badge in the bottom left file-browser panel of Thonny. If not, click the STOP button in the Thonny icon bar. 
 
