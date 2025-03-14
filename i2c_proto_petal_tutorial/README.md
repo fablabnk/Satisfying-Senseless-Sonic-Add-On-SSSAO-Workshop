@@ -26,7 +26,7 @@ The software files you need are:
  - `singlewire_pio.py`
  - `blink.bin`
 
-Copy these files to your badge via either Thonny, VSCode (using the Micropython extension), or mpremote. Please note that this is not referring to mounting the disk as you do when flashing the Pico's image.
+For the Europe loadout, these are already on the badge.  If you have a Supercon version, copy these files to your badge via either Thonny, VSCode (using the Micropython extension), or mpremote. Please note that this is not referring to mounting the disk as you do when flashing the Pico's image.
 
 #### 4. Start up the REPL
 
@@ -45,6 +45,7 @@ These commands respectively:
 - import the CH32_Flash class into your current environment
 - This instantiates the object for the GPIO on the i2c port 1.
 - This will flash the firmware on the Petal.
+- Try "blink2.bin" for an inverse blinking experience!
 
 #### 6. Celebrate
 
