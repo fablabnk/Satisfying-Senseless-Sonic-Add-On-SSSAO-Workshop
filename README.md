@@ -16,4 +16,4 @@ Then you will need to buy or make (or will be given in the workshop):
 - the components in the [bill of materials](./BOM.txt)
 - a set of 3D printed parts (in [the 3D models folder](./SSSAO_3D_models))
 
-See the presentation slides for more details...and happy hardware hacking :)
+See the [presentation slides](./presentation_slides.pdf) for more details...and happy hardware hacking :)
