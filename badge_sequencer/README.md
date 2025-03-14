@@ -6,7 +6,7 @@ By default the sequencer run in a looping two bar pattern, with sixteen steps pe
 
 # How to Upload Sequencer Code to Your Badge
 
-1. First flash the supercon badge image following the process described [here](./tree/main/badge_firmware)
+1. First flash the supercon badge image onto your badge if it hasn't been done for you already. It can be found here (../badge_firmware). Quick guide: Hold BOOTSEL button, connect Pico to USB, when drive appears release BOOTSEL button then drag-and-drop .uf2 file onto RPI-RP2 drive and it will reboot with new firmware.
 
 2. Now download [Thonny](https://thonny.org/) and open it. We will use it to copy our sequencer main.py over to the Pi Pico W on your badge
 
