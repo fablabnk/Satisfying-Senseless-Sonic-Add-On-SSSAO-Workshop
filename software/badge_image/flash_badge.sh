@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Mount Pico and copy firmware file
 
-FIRMWARE=./supercon_image.uf2
+FIRMWARE=./hackaday_europe_image.uf2
 
 # Function to execute on new device
 new_device ()
