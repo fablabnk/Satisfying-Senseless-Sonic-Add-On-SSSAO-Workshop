@@ -29,7 +29,7 @@ The software files you need are:
  - `singlewire_pio.py`
  - `SSSAO_firmware.bin`
 
-Copy these files to your badge via either Thonny, VSCode (using the Micropython extension), or mpremote. A description for how to upload files to Thonny is provided in the [sequencer README](./badge_sequencer/README.md)
+Copy these files to your badge via either Thonny, VSCode (using the Micropython extension), or mpremote. A description for how to upload files to Thonny is provided in the [sequencer README](./main/tree/badge_sequencer/README.md)
 
 Please note that this is not referring to mounting the disk as you do when flashing the Pico's image.
 
@@ -57,7 +57,7 @@ Provided you already did the associated soldering, your proto petal SAO is now a
 
 ### Troubleshooting
 
-A few folks have experienced trouble with the existing image on the badge. If you experience difficulty, it may be worth flashing the badge's image. The image can be found in the [repo, here](https://github.com/Hack-a-Day/2024-Supercon-8-Add-On-Badge/blob/main/software/micropython/RPI_PICO_W-20240602-v1.23.0.uf2).
+A few folks have experienced trouble with the existing image on the badge. If you experience difficulty, it may be worth flashing the badge's image. The image can be found in the [repo here](https://github.com/Hack-a-Day/2024-Supercon-8-Add-On-Badge/blob/main/software/micropython/RPI_PICO_W-20240602-v1.23.0.uf2).
 
 #### Acknowledgments
 

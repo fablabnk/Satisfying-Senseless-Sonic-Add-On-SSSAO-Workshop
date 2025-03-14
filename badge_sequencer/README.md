@@ -6,11 +6,11 @@ By default the sequencer run in a looping two bar pattern, with sixteen steps pe
 
 # How to Upload Sequencer Code to Your Badge
 
-1. First flash the supercon badge image following the process described [here](https://github.com/fablabnk/Satisfying-Senseless-Sonic-Add-On-SSSAO-Workshop/tree/main/badge_image)
+1. First flash the supercon badge image following the process described [here](./tree/main/badge_firmware)
 
 2. Now download [Thonny](https://thonny.org/) and open it. We will use it to copy our sequencer main.py over to the Pi Pico W on your badge
 
-3. In the top left file-browser panel of Thonny, navigate to the [/sequencer](https://github.com/fablabnk/Satisfying-Senseless-Sonic-Add-On-SSSAO-Workshop/tree/main/sequencer) folder.
+3. In the top left file-browser panel of Thonny, navigate to the [/sequencer](./tree/main/badge_sequencer) folder.
 
 4. Connect your conference badge to your PC using a data-enabled USB cable. You should see the files that are currently on the badge in the bottom left file-browser panel of Thonny. If not, click the STOP button in the Thonny icon bar. 
 
@@ -40,28 +40,30 @@ On badge-startup all SSSAO's will come on for a few seconds and may sound consta
 The function of the buttons is as follows:
 
 Button A:
-	- simply a SHIFT button
+- simply a SHIFT button
 
 Button B:
-	- without SHIFT								SSSAO SELECT: selects the next SSSAO (from 1-6, then looping back to 1)
-	- with SHIFT 								TAP TEMPO: two subsquent taps will set the time between two beats (1/4 of a bar)
-	- without SHIFT and HELD for 2 seconds		DOUBLE TEMPO (up to max of 240 BPM)
-	- with SHIFT and HELD for 2 seconds			HALVE TEMPO (down to min of 40 BPM)
+- without SHIFT								SSSAO SELECT: selects the next SSSAO (from 1-6, then looping back to 1)
+- with SHIFT 								TAP TEMPO: two subsquent taps will set the time between two beats (1/4 of a bar)
+- without SHIFT and HELD for 2 seconds		DOUBLE TEMPO (up to max of 240 BPM)
+- with SHIFT and HELD for 2 seconds			HALVE TEMPO (down to min of 40 BPM)
 
 Button C:
-	- without SHIFT:							RECORD NOTE: live records a note on the selected SSSAO for as long as held
-	- with SHIFT								CLEAR NOTES: clears all notes on the selected SSSAO
+- without SHIFT:							RECORD NOTE: live records a note on the selected SSSAO for as long as held
+- with SHIFT								CLEAR NOTES: clears all notes on the selected SSSAO
 
 ## More About The SAO LEDs
 
 Each SSSAO has two LEDs:
-	- a SAO SELECT / METRONOME LED (which you soldered on yourself, in the centre of the SSSAO)
-	- a NOTES LED (the pre-soldered SMT LED, at the bottom of the SSSAO)
+- a SAO SELECT / METRONOME LED (which you soldered on yourself, in the centre of the SSSAO)
+- a NOTES LED (the pre-soldered SMT LED, at the bottom of the SSSAO)
 
-### SSSAO SELECT / METRONOME LED:
-	- gives a visual reference for the current tempo
-	- only blinks on the currently selected SSSAO
-	- blinks momentarily when the SAO SELECT button is pressed, to help you see where you are
+### SSSAO SELECT / METRONOME LED
 
-### RECORDED NOTES LED:
-	- blinks according to the pattern you record using Button C
+- gives a visual reference for the current tempo
+- only blinks on the currently selected SSSAO
+- blinks momentarily when the SAO SELECT button is pressed, to help you see where you are
+
+### RECORDED NOTES LED
+
+- blinks according to the pattern you record using Button C
