@@ -29,7 +29,7 @@ The software files you need are:
  - `singlewire_pio.py`
  - `SSSAO_firmware.bin`
 
-Copy these files to your badge via either Thonny, VSCode (using the Micropython extension), or mpremote. A description for how to upload files to Thonny is provided in the [sequencer README](./main/tree/badge_sequencer/README.md)
+Copy these files to your badge via either Thonny, VSCode (using the Micropython extension), or mpremote. A description for how to upload files to Thonny is provided in the [sequencer README](../main/tree/badge_sequencer/README.md)
 
 Please note that this is not referring to mounting the disk as you do when flashing the Pico's image.
 
