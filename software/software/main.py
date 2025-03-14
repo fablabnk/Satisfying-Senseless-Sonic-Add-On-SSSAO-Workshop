@@ -12,6 +12,9 @@ if petal_bus:
             petal_bus.writeto_mem(PETAL_ADDRESS, i, bytes([which_leds]))
             time.sleep_ms(30)
             petal_bus.writeto_mem(PETAL_ADDRESS, i, bytes([which_leds]))
+    # and clear
+    for i in range(1,9):
+        petal_bus.writeto_mem(PETAL_ADDRESS, i, bytes([0]))
 
 while True:
 
@@ -49,8 +52,6 @@ while True:
             else:
                 petal_bus.writeto_mem(0, i, bytes([0x00]))
 
-
-    
     time.sleep_ms(100)
     bootLED.off()
 

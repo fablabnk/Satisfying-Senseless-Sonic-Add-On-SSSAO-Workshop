@@ -114,9 +114,9 @@ while not touchwheel_bus:
         touchwheel_bus =  which_bus_has_device_id(0x54)[0]
     except:
         pass
-    time.sleep_ms(100)
+    time.sleep_ms(10)
     touchwheel_counter = touchwheel_counter + 1
-    if touchwheel_counter > 50:
+    if touchwheel_counter > 5:
         break
 if not touchwheel_bus:
     print(f"Warning: Touchwheel not found.")
