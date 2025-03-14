@@ -1,0 +1,25 @@
+For the SSSAO:
+M1	1x02 P2.54mm Pin Header (to attach to wired motor)
+J2	1x02 P2.54mm Pin Header (to attach to jumper block)
+R4	1K Resistor
+R2	220R Resistor
+R3	10K Resistor
+Q1	2N2222 Transistor (NPN)
+SW1	6x6mm Tactile Switch (Push Button)
+D2	3mm LED (any colour)
+D3	1N4001 Schottky Rectifier Diode
+RV1	10K Potentiometer (right-angled pins) e.g https://www.aliexpress.com/item/1005005243110888.html
+
+DC Mobile Phone Vibrating Motor e.g. https://www.aliexpress.com/item/1005004948677826.html
+Coin Button-Type Micro DC Vibrating Motor e.g. https://www.aliexpress.com/item/1005007550657082.html
+1x02 P2.54mm Jumper Block
+Solid-Core Wire (in three colours - blue, yellow, red - cut into approx 3m lengths)
+Tamborine Bells e.g. https://www.aliexpress.com/item/1005006347474929.html
+Jingle Bells (8mm, 12mm) e.g. https://www.aliexpress.com/item/32845478054.html
+
+Already part of the proto-petal (useful to know if you want to make a through hole version):
+R1 	1K
+C1	100 nF
+D1	REC LED
+U1	CH32V003FxPx
+J1	2x03 P2.54mm Vertical PinSocket
