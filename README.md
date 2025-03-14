@@ -6,7 +6,7 @@ The most fun is to build multiple SSSAO's and sequencer them using the badge.
 
 ![Badge Glamour Shot](./images/supercon8_sao_badge_featured.png)
 
-![SSSAO Showcase](./images/badge_photos/SSSAO_showcase.jpg)
+![SSSAO Showcase](./images/SSSAO_showcase.jpg)
 
 Before starting, you will need to have or fabricate:
 - a Hackaday Supercon or Hackaday Berlin conference badge
