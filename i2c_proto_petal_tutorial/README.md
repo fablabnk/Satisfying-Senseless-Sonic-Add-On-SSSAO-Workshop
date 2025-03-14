@@ -54,7 +54,7 @@ You should now see successful blinking on your proto petal.
 
 ### Troubleshooting
 
-A few folks have experienced trouble with the existing image on the badge. If you experience difficulty, it may be worth flashing the badge's image. The image can be found in the [repo, here](https://github.com/Hack-a-Day/2024-Supercon-8-Add-On-Badge/blob/main/software/micropython/RPI_PICO_W-20240602-v1.23.0.uf2).
+A few folks have experienced trouble with the existing image on the badge. If you experience difficulty, it may be worth flashing the badge's image. The image can be found in the [repo here](https://github.com/Hack-a-Day/2024-Supercon-8-Add-On-Badge/blob/main/software/micropython/RPI_PICO_W-20240602-v1.23.0.uf2).
 
 
 #### Acknowledgments
