@@ -37,10 +37,19 @@ async def metronome():
     while True:
         interval = 60 / bpm / steps_per_beat  # Interval for each step (dynamic BPM, 4 steps per beat)
         if current_step % steps_per_beat == 0:  # Light UP the LED every 4 steps (1 beat)
+            petal_bus.writeto_mem(PETAL_ADDRESS, 2, bytes([0x80]))
             led_metro_pins[current_channel].off()
+            petal = 0
+            petal_bus.writeto_mem(0, current_channel + 1, bytes([0x7F]))
             await asyncio.sleep(interval)
             led_metro_pins[current_channel].on()
+            for i in range(1,9):
+                petal_bus.writeto_mem(0, i, bytes([0x00]))
         else:
+            petal_bus.writeto_mem(PETAL_ADDRESS, 2, bytes([0x00]))
+            petal_bus.writeto_mem(PETAL_ADDRESS, 3, bytes([0x00]))
+            petal_bus.writeto_mem(PETAL_ADDRESS, 4, bytes([0x00]))
+            petal = 999
             await asyncio.sleep(interval)  # Wait for the full interval if not a beat
         current_step = (current_step + 1) % total_steps
 
